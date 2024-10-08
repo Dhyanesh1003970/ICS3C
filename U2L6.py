@@ -17,3 +17,24 @@ for i in range(1, rows+1):
         k += 1
     k = 0
     print()
+
+#modification 3
+n=input('Input the number of rows: ')
+n=int(n)
+s = '#'
+for i in range (n):
+   for j in range(n-i-1):
+       print(' ',end='')
+   for j in range(2*i+1):
+       print('#', end='')
+   print()
+
+
+for i in range(n):
+   for j in range(i):
+       print(' ',end='')
+   for j in range(2*(n-i)-1):
+       print("#",end="")
+   print()
+
+
