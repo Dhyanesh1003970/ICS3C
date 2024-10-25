@@ -14,22 +14,25 @@ while(num != d):
         num = int(num)
     m = math.floor((math.sqrt(num)))
     
-
-    t=[]
+   #4 print(m)
     
-    while(x<=num):
-        if (num%x==0):
-            if(x != num):
-                if(x != 1):
-                    if(num / m != m):
-                        print(x)
-                    elif(num / m == m):
-                        t.append(x)
+    
+    
+    while():
+        if (m*x==num):
+            print(m , x)
+        
+        x = x+1
+    
+    
+   # while(x<=num):
+     #   if (num%x==0):
+      #      if(x != num):
+       #         if(x != 1):
+        #            print(x)
                         
                          
-        x = x+1
+      
 
 
-    if(len(t)==1):
-        print(t)
     num = (input('Enter the number of photos: '))
