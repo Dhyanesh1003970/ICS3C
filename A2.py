@@ -14,25 +14,21 @@ while(num != d):
         num = int(num)
     m = math.floor((math.sqrt(num)))
     
-   #4 print(m)
+   # print(m)
     
     
     
-    while():
-        if (m*x==num):
-            print(m , x)
+    while(x<=num):
+        if(num%m!=0):
+            m=m+1
         
+        if (m*x==num):
+            print(m ,'x', x)
+            t = 2*(m+x)
+            print('The minimum perimeter would be:', t)
+            
+            
         x = x+1
     
-    
-   # while(x<=num):
-     #   if (num%x==0):
-      #      if(x != num):
-       #         if(x != 1):
-        #            print(x)
                         
-                         
-      
-
-
     num = (input('Enter the number of photos: '))
