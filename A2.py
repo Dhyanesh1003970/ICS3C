@@ -13,7 +13,7 @@ t = answer of perimeter(int)
 
 
 
-print('Hello, welcome to photo organzier, answer the question to recieve the deminsions, Enter ''done'' when you are done with the program')
+print('Hello, welcome to photo organzier, answer the question to recieve the deminsions, Enter the word done when you are done with the program')
 
 print()
 
@@ -29,6 +29,7 @@ while(num != d): #Will continue to loop until the user input equals 'd'
     num = int(num)
     while(num <= 0): # will continue to loop if user keeps inputing the number<=0
         print('Please enter a number greater than zero')
+        print()
         num = int(input('Enter the number of photos: '))
         num = int(num)#Data change
     m = math.floor((math.sqrt(num))) #Takes input of user and finds the square root than rounds down
