@@ -49,5 +49,5 @@ while(num != d): #Will continue to loop until the user input equals 'd'
             
         x = x+1
     
-                        
+    print()             
     num = (input('Enter the number of photos: '))#loop
