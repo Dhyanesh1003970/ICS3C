@@ -1,11 +1,17 @@
-L = input("how many lines are yiou inputing? ")
+L = input("how many lines are you inputing? ")
 
 L =int(L)
 
-p = []
+
+
+
+c = 'C'
+g = 'G'
+t = 'T'
+a = 'A'
 
 for j in range (L):
-
+  p=[]
 
   def comp(dna):
     
@@ -30,27 +36,43 @@ for j in range (L):
       elif(dna[i]==a):
         T='T'
         p.append(T)
-       
-      else:
-        print('error')
+
        
     print(p)
     
  
  
   def validate():
-    for i in range(len(p)):
-      if(p[i] != 'A', 'C', 'G', 'T'):
+      if(len(p)== len(dna)):
         print('Valid')
+        
        
       else:
-        print('error')
+        print('Not valid:', end='')
+        for i in range(len(dna)):
+            if(dna[i]==c):
+              x=1
+    
+            elif(dna[i]==g):
+              x=1
+    
+            elif(dna[i]==t):
+              x=1
+     
+            elif(dna[i]==a):
+              x=1
+          
+            else:
+              j = i+1
+              print(dna[i],'found in position', j )
   
-  
+
+
   
   
   
   print()     
   dna = input('Input strand: ')
 
-comp(dna) 
+  comp(dna) 
+  validate()
