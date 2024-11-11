@@ -1,18 +1,23 @@
 import random
 
 def shuff(s):
-    t=[]
-    s +=1
-    g=1
-    for i in range (1,s):
-        x = random.randrange(1, s)
+  t=[]
+  s +=1
+
+  x = random.randrange(1,s)
+  t.append(x)
+    
+  for i in range (1,s):
+      
+    x= random.randrange(1,s)
+
+    t.append(x)
+         
+
+       
         
-        
-            t.append(x)
-         g+=1
-        
-        
-    print(t)
+  print(t)
     
     
-    
+
+shuff(6)
