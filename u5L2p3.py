@@ -1,4 +1,4 @@
-filename = "smiley_emoji_mod.xpm"
+filename = "txt.txt"
 fh = open(filename, "r")
 
 colorData = fh.readline()
@@ -13,6 +13,7 @@ print(rows, cols, numColors)
 
 
 
+colorDefs = [[0]*2]*numColors
 for i in range(numColors):
     colorLine = fh.readline()
     colorLine.strip()
@@ -20,16 +21,12 @@ for i in range(numColors):
     
     print(sym , c, color)
     
-colorDefs = [[0] * 2] * numColors
-for i in range(numColors):
-    colorline =fh.readline()
-    colorLine.strip()
-    sym, c, color = colorLine.split()
     
     if(sym=='~'):
         sym=' ' 
-   
-        
+             
+    colorDefs[i][0] = sym
+    colorDefs[i][1] = color
     
 a=[0]*rows
 x=[]
