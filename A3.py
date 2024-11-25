@@ -5,15 +5,58 @@ t=turtle.Turtle()
 
 
 
-def color(s, c):
-    if()
+
+def colors(sym, color):
+    c=[]
+    c.append(sym)
+    c.append(color)
     
+    for i in range(rows):
+        fh.readline()
+        
+        for i in range()
+        
 
 
-def cor(x , y):
+
+
+
+def cordinates():
+    x = cols/2
+    calls = cols/2
+
+    x = x*10
+    calls = calls*10
+    y = rows/2
+    row = rows/2
+
+    y = y*10
+    row = row*10
+    row=row*-1
+    x = x*-1
+
+
+
+    for j in range(rows):
+        for i in range(cols):
+            while(y>row):
+                x= cols/2
+                x=x*10
+                x=x*-1
+                x = x +10
+                y = y -10
+                plot(x , y)
+                while(x<calls):
+                    x += 10
+                    
+                    plot(x , y)
+
+
+
+def plot(x , y):
     turtle.penup()
     turtle.goto(x, y)
-    turtle.dot(10 , "black")
+    turtle.dot(10 , colors)
     
 
 
@@ -47,60 +90,23 @@ for i in range(numColors):
     
     print(sym , c, color)
     
-
-    
     if(sym=='~'):
         sym=' ' 
              
     colorDefs[i][0] = sym
     colorDefs[i][1] = color
     
-d = 4
-
-
-
-
-x = cols/2
-calls = cols/2
-
-x = x*10
-calls = calls*10
-y = rows/2
-row = rows/2
-
-y = y*10
-row = row*10
-row=row*-1
-x = x*-1
-
-
-
-for j in range(rows):
+    colors(sym, color)
     
-        for i in range(cols):
-               while(y>row):
-                   x= cols/2
-                   x=x*10
-                   x=x*-1
-                   x = x +10
-                   y = y -10
-                   cor(x , y)
-                   while(x<calls):
-                       x += 10
-                       cor(x , y)
 
 
-                  
+
+
+cordinates()
+
+
 
 fh.close()
 
-filename = "txt.txt"
-fh = open(filename, "r")
-
-for i in range(numColors+1):
-    fh.readline()
-
-for j in range(rows):
-    fh.readline()
     
 
