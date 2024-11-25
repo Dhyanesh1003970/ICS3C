@@ -11,11 +11,7 @@ def colors(sym, color):
     c.append(sym)
     c.append(color)
     
-    for i in range(rows):
-        fh.readline()
-        
-        for i in range()
-        
+    print(c)
 
 
 
@@ -56,7 +52,7 @@ def cordinates():
 def plot(x , y):
     turtle.penup()
     turtle.goto(x, y)
-    turtle.dot(10 , colors)
+    turtle.dot(10 , 'black')
     
 
 
@@ -88,7 +84,7 @@ for i in range(numColors):
     colorLine.strip()
     sym, c, color = colorLine.split()
     
-    print(sym , c, color)
+    print(sym, c, color)
     
     if(sym=='~'):
         sym=' ' 
@@ -98,6 +94,7 @@ for i in range(numColors):
     
     colors(sym, color)
     
+
 
 
 
