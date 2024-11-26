@@ -6,16 +6,17 @@ t=turtle.Turtle()
 
 
 
-def colors(sym, color):
-    c=[]
-    c.append(sym)
-    c.append(color)
-    
-    print(c)
 
-
-
-
+def colors(sym, color, fh):
+    print(colorDefs)
+    for i in range(rows):
+       colorFind = fh.readline()
+       colorFind.strip()
+       for j in range(cols):
+           for c in range(len(colorDefs)):
+               if(colorFind!=colorDefs[c]):
+                   print(c)
+                
 
 def cordinates():
     x = cols/2
@@ -41,18 +42,18 @@ def cordinates():
                 x=x*-1
                 x = x +10
                 y = y -10
-                plot(x , y)
+                plot(x , y, colors)
                 while(x<calls):
                     x += 10
                     
-                    plot(x , y)
+                    plot(x , y, colors)
 
 
 
-def plot(x , y):
+def plot(x , y, colors):
     turtle.penup()
     turtle.goto(x, y)
-    turtle.dot(10 , 'black')
+    turtle.dot(10 , colors)
     
 
 
@@ -78,24 +79,32 @@ print(rows, cols, numColors)
 
 
 
-colorDefs = [[0]*2]*numColors
+colorDefs = []
+colorDefs2= []
+
+
 for i in range(numColors):
     colorLine = fh.readline()
     colorLine.strip()
     sym, c, color = colorLine.split()
     
-    print(sym, c, color)
     
+      
     if(sym=='~'):
         sym=' ' 
-             
-    colorDefs[i][0] = sym
-    colorDefs[i][1] = color
+            
     
-    colors(sym, color)
+    colorDefs.append([sym])
+    colorDefs2.append([color])
+        
     
 
+    print(sym, c, color)
+    
+   
+colors(sym,colors, fh)
 
+    
 
 
 
