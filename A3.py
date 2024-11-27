@@ -32,9 +32,9 @@ t=turtle.Turtle()
     
 def cordinates():
     
-    c=1
     
-    color = 'black'
+    
+
     
     
     x = cols/2
@@ -50,23 +50,29 @@ def cordinates():
     row=row*-1
     x = x*-1
 
-
+    
 
     for i in range(rows):
+        c=1
+        
         for l in range(cols):
             while(y>row):
+              
+                
                 colorFind = fh.readline()
                 colorFind.strip()
-                colorFind.split()
+        
+                #print(colorFind)
+                
      
-                for k in range(len(colorDefs)):
-                    if(colorFind[i]!=colorDefs[k]):
-                        color = colorDefs2[k]
-                        print(color)
+                
+                if(colorFind[l]==colorDefs[c]):
+                    color = colorDefs2[c]
                     
-                    else:
-                        while(c<=len(colorDefs)):
-                            c +=1
+                    
+                else:
+                    while(c<=len(colorDefs)):
+                        c +=1
                 
                 
                 
@@ -90,7 +96,7 @@ def plot(x , y, colr):
     turtle.penup()
     turtle.goto(x, y)
     turtle.dot(10 , colr)
-  
+
 
 
 
@@ -130,8 +136,8 @@ for i in range(numColors):
         sym=' ' 
             
     
-    colorDefs.append([sym])
-    colorDefs2.append([colors])
+    colorDefs.append(sym)
+    colorDefs2.append(colors)
      
     
     print(sym, c, colors)
