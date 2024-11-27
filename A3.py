@@ -7,30 +7,36 @@ t=turtle.Turtle()
 
 
 
-def colors(fh):
+#def colors(fh):
+    
+   
+    
+ #   print(colorDefs)
+  #  print(colorDefs2)
+   # for i in range(rows):
+    #    colorFind = fh.readline()
+     #   colorFind.strip()
+      #  colorFind.split()
+     
+            
+       #     while(colorDefs==colorFind):
+        #        if(colorFind[i]==colorDefs[c]):
+         #           color = colorDefs2[c]
+                    
+                
+          #      while(c<=colorDefs):
+           #         c +=1
+    
+    #cordinates()
+    
+    
+def cordinates():
     
     c=1
     
-    print(colorDefs)
-    print(colorDefs2)
-    for i in range(rows):
-        colorFind = fh.readline()
-        colorFind.strip()
-        colorFind.split()
-        for k in range(cols):
-            
-            while(colorDefs==colorFind):
-                if(colorFind[i]==colorDefs[c]):
-                    color = colorDefs2[c]
-                    
-                
-                while(c<=colorDefs):
-                    c +=1
-    
-    cordinates()
+    color = 'black'
     
     
-def cordinates(color):
     x = cols/2
     calls = cols/2
 
@@ -46,28 +52,45 @@ def cordinates(color):
 
 
 
-    for k in range(rows):
+    for i in range(rows):
         for l in range(cols):
             while(y>row):
+                colorFind = fh.readline()
+                colorFind.strip()
+                colorFind.split()
+     
+                for k in range(len(colorDefs)):
+                    if(colorFind[i]!=colorDefs[k]):
+                        color = colorDefs2[k]
+                        print(color)
+                    
+                    else:
+                        while(c<=len(colorDefs)):
+                            c +=1
+                
+                
+                
+                
+                
+                
                 x= cols/2
                 x=x*10
                 x=x*-1
                 x = x +10
                 y = y -10
-                plot(x , y)
+                plot(x , y, color)
                 while(x<calls):
                     x += 10
                     
-                    plot(x , y)
+                    plot(x , y, color)
 
 
 
-def plot(x , y, color):
+def plot(x , y, colr):
     turtle.penup()
     turtle.goto(x, y)
-    turtle.dot(
-    10 , color)
-    
+    turtle.dot(10 , colr)
+  
 
 
 
@@ -99,22 +122,23 @@ colorDefs2= []
 for i in range(numColors):
     colorLine = fh.readline()
     colorLine.strip()
-    sym, c, color = colorLine.split()
+    sym, c, colors = colorLine.split()
     
     
       
-    #if(sym=='~'):
-     #   sym=' ' 
+    if(sym=='~'):
+        sym=' ' 
             
     
     colorDefs.append([sym])
-    colorDefs2.append([color])
+    colorDefs2.append([colors])
      
     
-    print(sym, c, color)
+    print(sym, c, colors)
     
-   
-colors(sym,colors, fh)
+  
+
+cordinates()
 
 
 
