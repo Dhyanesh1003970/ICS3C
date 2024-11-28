@@ -31,12 +31,6 @@ t=turtle.Turtle()
     
     
 def cordinates():
-    
-    
-    
-
-    
-    
     x = cols/2
     calls = cols/2
 
@@ -53,42 +47,40 @@ def cordinates():
     
 
     for i in range(rows):
-        c=1
+        
+        x= cols/2
+        x=x*10
+        x=x*-1
+
+        
+        p = col[i].strip()
         
         for l in range(cols):
-            while(y>row):
-              
+            if (x<calls):
                 
-                colorFind = fh.readline()
-                colorFind.strip()
-        
-                #print(colorFind)
-                
-     
-                
-                if(colorFind[l]==colorDefs[c]):
-                    color = colorDefs2[c]
-                    
-                    
-                else:
-                    while(c<=len(colorDefs)):
-                        c +=1
+                color = ['black']
                 
                 
+                x += 10
+                
+                for j in range(numColors):
+                    if(p[l]==colordefs[j]):
+                        color.append(colorDef2[j])
                 
                 
+                print(color)
+               
+                plot(x , y, color[0])
+    
+            if(x==calls):
+                y -= 10
                 
-                
-                x= cols/2
-                x=x*10
-                x=x*-1
-                x = x +10
-                y = y -10
-                plot(x , y, color)
-                while(x<calls):
-                    x += 10
-                    
-                    plot(x , y, color)
+
+
+
+def plot1(x,y):
+    turtle.goto(x, y)
+
 
 
 
@@ -121,7 +113,7 @@ print(rows, cols, numColors)
 
 
 
-colorDefs = []
+colordefs = []
 colorDefs2= []
 
 
@@ -131,19 +123,23 @@ for i in range(numColors):
     sym, c, colors = colorLine.split()
     
     
-      
-    if(sym=='~'):
-        sym=' ' 
-            
+    if sym == '~':
+        sym = " "
     
-    colorDefs.append(sym)
-    colorDefs2.append(colors)
+    colordefs.append([sym])
+    colorDefs2.append([colors])
+   
      
-    
-    print(sym, c, colors)
-    
-  
 
+
+col= [0]*rows
+
+for k in range(rows):
+    col[k]= fh.readline()
+    
+print(col)
+    
+    
 cordinates()
 
 
