@@ -7,87 +7,61 @@ t=turtle.Turtle()
 
 
 
-#def colors(fh):
-    
-   
-    
- #   print(colorDefs)
-  #  print(colorDefs2)
-   # for i in range(rows):
-    #    colorFind = fh.readline()
-     #   colorFind.strip()
-      #  colorFind.split()
-     
-            
-       #     while(colorDefs==colorFind):
-        #        if(colorFind[i]==colorDefs[c]):
-         #           color = colorDefs2[c]
-                    
-                
-          #      while(c<=colorDefs):
-           #         c +=1
-    
-    #cordinates()
     
     
 def cordinates():
     x = cols/2
     calls = cols/2
 
-    x = x*10
-    calls = calls*10
+    x = x*3
+    calls = calls*3
     y = rows/2
     row = rows/2
 
-    y = y*10
+    y = y*3
     row = row*10
     row=row*-1
     x = x*-1
-
     
+    print(colordefs)
+    print(colorDefs2)
 
     for i in range(rows):
-        
         x= cols/2
-        x=x*10
+        x=x*3
         x=x*-1
 
-        
         p = col[i].strip()
         
-        for l in range(cols):
+        for l in range(len(p)-1):
             if (x<calls):
                 
-                color = ['black']
+                x += 3
                 
-                
-                x += 10
                 
                 for j in range(numColors):
                     if(p[l]==colordefs[j]):
-                        color.append(colorDef2[j])
+                        color  = (colorDefs2[j])
+                        
                 
-                
-                print(color)
+                        
                
-                plot(x , y, color[0])
-    
+                plot(x , y, color)
+                print(calls)
             if(x==calls):
-                y -= 10
+                y = y- 10
                 
 
 
 
-def plot1(x,y):
-    turtle.goto(x, y)
 
 
 
-
-def plot(x , y, colr):
+def plot(x , y, color):
     turtle.penup()
     turtle.goto(x, y)
-    turtle.dot(10 , colr)
+    turtle.dot(3 , color)
+    print(y)
 
 
 
@@ -99,7 +73,7 @@ def plot(x , y, colr):
 
 
 
-filename = "txt.txt"
+filename = "smiley_emoji_mod.xpm"
 fh = open(filename, "r")
 
 colorData = fh.readline()
@@ -122,12 +96,23 @@ for i in range(numColors):
     colorLine.strip()
     sym, c, colors = colorLine.split()
     
+    for i in range(len(sym)):
+        if sym[i]=='"':
+            sym[i] =''
+    
+    
+    for i in range(len(colors)):
+        if colors[i]=='"':
+            colors[i] =''
+    
+    
+    
     
     if sym == '~':
         sym = " "
     
-    colordefs.append([sym])
-    colorDefs2.append([colors])
+    colordefs.append(sym)
+    colorDefs2.append(colors)
    
      
 
@@ -140,6 +125,7 @@ for k in range(rows):
 print(col)
     
     
+turtle.bgcolor('gray40')
 cordinates()
 
 
