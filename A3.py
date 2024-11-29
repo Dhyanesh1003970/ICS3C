@@ -10,30 +10,41 @@ t=turtle.Turtle()
     
     
 def cordinates():
-    x = cols/2
+    
     calls = cols/2
 
-    x = x*3
-    calls = calls*3
+   
+    #calls = calls*3
+    math.floor(calls)
     y = rows/2
     row = rows/2
 
-    y = y*3
-    row = row*10
+   # y = y*3
+    #row = row*3
     row=row*-1
-    x = x*-1
+    
+    
+    
+    if(rows>=cols):
+        call = rows - cols
+        call = call*-1
+    
+    elif(rows<=cols):
+        call = cols - rows
+        call = call*-1
     
     print(colordefs)
     print(colorDefs2)
 
-    for i in range(rows):
+    for i in range(len(col)):
+        k=0
         x= cols/2
         x=x*3
         x=x*-1
 
         p = col[i].strip()
         
-        for l in range(len(p)-1):
+        for l in range(len(p)):
             if (x<calls):
                 
                 x += 3
@@ -43,13 +54,15 @@ def cordinates():
                     if(p[l]==colordefs[j]):
                         color  = (colorDefs2[j])
                         
-                
+                        
                         
                
                 plot(x , y, color)
-                print(calls)
+                 
+                 
+                 
             if(x==calls):
-                y = y- 10
+                y = y-3
                 
 
 
@@ -61,7 +74,7 @@ def plot(x , y, color):
     turtle.penup()
     turtle.goto(x, y)
     turtle.dot(3 , color)
-    print(y)
+   
 
 
 
@@ -126,9 +139,13 @@ print(col)
     
     
 turtle.bgcolor('gray40')
+
+turtle.tracer(0,0)
+
+
 cordinates()
 
-
+turtle.update()
 
 fh.close()
 
