@@ -85,7 +85,10 @@ def cordinates2():
 def plot(x , y, color):
     turtle.penup()
     turtle.goto(x, y)
-    turtle.dot(3 , color)
+    turtle.dot(4 , color)
+    t.hideturtle()
+   
+   
    
 filename = "rocky_bullwinkle_mod.xpm"
 fh = open(filename, "r")
@@ -110,16 +113,6 @@ for i in range(numColors):
     colorLine.strip()
     sym, c, colors = colorLine.split()
     
-    for i in range(len(sym)):
-        if sym[i]=='"':
-            sym[i] =''
-    
-    
-    for i in range(len(colors)):
-        if colors[i]=='"':
-            colors[i] =''
-    
-    
     
     
     if sym == '~':
@@ -142,7 +135,9 @@ turtle.bgcolor('gray40')
 turtle.tracer(0,0)
 
 
-cordinates2()
+cordinates()
+
+t.hideturtle()
 
 turtle.update()
 
