@@ -2,44 +2,23 @@ import math
 import turtle
 
 t=turtle.Turtle()
-
-
-
-
-
-    
     
 def cordinates():
     
     calls = cols/2
-
-   
-    #calls = calls*3
+    calls = calls*2
     math.floor(calls)
     y = rows/2
     row = rows/2
-
-   # y = y*3
-    #row = row*3
+    y = y*2
+    row = row*2
     row=row*-1
     
-    
-    
-    if(rows>=cols):
-        call = rows - cols
-        call = call*-1
-    
-    elif(rows<=cols):
-        call = cols - rows
-        call = call*-1
-    
-    print(colordefs)
-    print(colorDefs2)
-
-    for i in range(len(col)):
+    for i in range(rows):
         k=0
         x= cols/2
-        x=x*3
+        math.floor(x)
+        x=x*2
         x=x*-1
 
         p = col[i].strip()
@@ -47,23 +26,56 @@ def cordinates():
         for l in range(len(p)):
             if (x<calls):
                 
-                x += 3
-                
-                
+                x += 2
+                            
                 for j in range(numColors):
                     if(p[l]==colordefs[j]):
                         color  = (colorDefs2[j])
                         
-                        
-                        
-               
-                plot(x , y, color)
-                 
-                 
-                 
-            if(x==calls):
-                y = y-3
+                plot(x , y, color)                
+                                              
+        y = y-2
                 
+
+
+
+
+
+
+def cordinates2():
+    
+    calls = cols/2
+    calls = calls*-2
+    math.floor(calls)
+    y = rows/2
+    row = rows/2
+    y = y*-2
+    row = row*2
+    row=row*-1
+    
+    
+    for i in range(rows):
+        k=0
+        x= cols/2
+        math.floor(x)
+        x=x*2
+
+        p = col[i].strip()
+        
+        for l in range(len(p)):
+            if (x>calls):
+                
+                x -= 2
+                            
+                for j in range(numColors):
+                    if(p[l]==colordefs[j]):
+                        color  = (colorDefs2[j])
+                        
+                plot(x , y, color)                
+                                              
+        y = y+2
+
+
 
 
 
@@ -75,18 +87,7 @@ def plot(x , y, color):
     turtle.goto(x, y)
     turtle.dot(3 , color)
    
-
-
-
-
-    
-
-
-
-
-
-
-filename = "smiley_emoji_mod.xpm"
+filename = "rocky_bullwinkle_mod.xpm"
 fh = open(filename, "r")
 
 colorData = fh.readline()
@@ -135,15 +136,13 @@ col= [0]*rows
 for k in range(rows):
     col[k]= fh.readline()
     
-print(col)
     
     
 turtle.bgcolor('gray40')
-
 turtle.tracer(0,0)
 
 
-cordinates()
+cordinates2()
 
 turtle.update()
 
