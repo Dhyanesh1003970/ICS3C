@@ -3,19 +3,16 @@ import turtle
 
 t=turtle.Turtle()
     
-def cordinates():
+def cordinates(rows, cols):
     
     calls = cols/2
     calls = calls*2
     math.floor(calls)
     y = rows/2
-    row = rows/2
     y = y*2
-    row = row*2
-    row=row*-1
+    
     
     for i in range(rows):
-        k=0
         x= cols/2
         math.floor(x)
         x=x*2
@@ -42,16 +39,14 @@ def cordinates():
 
 
 
-def cordinates2():
+def cordinates2(rows, cols):
     
     calls = cols/2
     calls = calls*-2
     math.floor(calls)
     y = rows/2
-    row = rows/2
     y = y*-2
-    row = row*2
-    row=row*-1
+
     
     
     for i in range(rows):
@@ -135,7 +130,7 @@ turtle.bgcolor('gray40')
 turtle.tracer(0,0)
 
 
-cordinates()
+cordinates(rows, cols)
 
 t.hideturtle()
 
