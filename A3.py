@@ -29,9 +29,9 @@ colorDefs2 -array for colors in order relative to the symbol array
 colorline -(str) reads the color lines and splits it to 'symbol, c , color'
 
 col - array that stores each row of the file that is read
-'''
 
-'''
+
+
 In cordinates and cordinates2 function:
 
 calls -(int) variable to mimic the end of a row that is being printed
@@ -51,8 +51,8 @@ color - color for turtle dots
 
 
 
-import math # math libaray
-import turtle # turtle libaray
+import math
+import turtle
 
 t=turtle.Turtle() # making it easier
  
@@ -110,8 +110,8 @@ def cordinates2(rows, cols):
     
     for i in range(rows):# loop for number of rows in the file
         x= cols/2 #starting x cordinates for rows 
-        math.floor(x) # same reason as the variable for 'calls' will make it line up in the middle
-        x=x*2# y starting cordinate
+        math.floor(x)
+        x=x*2
 
         p = col[i].strip()# splits each character of the array
         
@@ -146,7 +146,7 @@ def plot(x , y, color):# plotting function
    
    
    
-filename = "txt.txt" # filename
+filename = "rocky_bullwinkle_mod.xpm" # filename
 fh = open(filename, "r") # opening file
 
 colorData = fh.readline() #labling the first line of reading to a variable
@@ -186,7 +186,7 @@ for k in range(rows):#loop to make fh read all the lines of the file
     
     
     
-turtle.bgcolor('gray40') # background change
+#turtle.bgcolor('gray40') # background change
 turtle.tracer(0,0) # makes turtle faster
 
 
