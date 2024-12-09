@@ -150,7 +150,7 @@ def plot(x , y, color):# plotting function
 
 
 
-filename = input("Input filename: ") # filename
+filename = input("Input filename in its full form(ex. smiley_emoji_mod.xpm): ") # filename
 
 
 try:
@@ -197,13 +197,20 @@ try:
     
     print(col)
 
+    
+    rta = input('What rotation do you want? (options: 180, 0): ')
+    
+
 
     #turtle.bgcolor('gray40') # background change
     turtle.tracer(0,0) # makes turtle faster
+    
+    if(rta=='180'):
+        cordinates2(rows, cols) # function to plot and make turtle move to the right spots
 
-
-    cordinates(rows, cols) # function to plot and make turtle move to the right spots
-
+    else:
+        cordinates(rows, cols)
+    
     t.hideturtle() # hiding turtle from the image
 
     turtle.update() # updating from turtle tracer so the image can show
