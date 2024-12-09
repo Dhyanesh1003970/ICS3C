@@ -127,7 +127,7 @@ def cordinates2(rows, cols):
                                             # matches one of colordef[j]
                         color  = (colorDefs2[j])# if so colorDef2[j] becomes color and plots it
                         
-                plot(x , y, color) # plotting function                
+                #plot(x , y, color) # plotting function                
                                               
         y = y+2 # would make turtle go up y when the for loop for L and J are done
 
@@ -141,62 +141,75 @@ def cordinates2(rows, cols):
 def plot(x , y, color):# plotting function
     turtle.penup()# turtle pen up so no lines show
     turtle.goto(x, y) # turtle goes to cordinates
-    turtle.dot(4 , color)# turtle plots the dot
+    turtle.dot(3 , color)# turtle plots the dot
     t.hideturtle()# turtle is hidden from image
    
    
-   
-filename = "rocky_bullwinkle_mod.xpm" # filename
-fh = open(filename, "r") # opening file
-
-colorData = fh.readline() #labling the first line of reading to a variable
-colorData.strip() # splits the line
-
-rows,cols,numColors=colorData.split() # catagorizing the line
-rows=int(rows) # Data change (str to int)
-cols=int(cols)# Data change(str to int)
-numColors=int(numColors) #Data change(str to int)
-print(rows, cols, numColors) #print the first line of the file
 
 
-colordefs = [] #array for symbols
-colorDefs2= [] #array for colors
 
 
-for i in range(numColors):# loop to read all the color lines
-    colorLine = fh.readline()#reads as many lines as the number of colors
-    colorLine.strip() # splits the characters
-    sym, c, colors = colorLine.split() # catagorizing the line
+
+filename = input("Input filename: ") # filename
+
+
+try:
+    fh = open(filename, "r") # opening file
+
+
+
+
+    colorData = fh.readline() #labling the first line of reading to a variable
+    colorData.strip() # splits the line
+
+    rows,cols,numColors=colorData.split() # catagorizing the line
+    rows=int(rows) # Data change (str to int)
+    cols=int(cols)# Data change(str to int)
+    numColors=int(numColors) #Data change(str to int)
+    print(rows, cols, numColors) #print the first line of the file
+
+
+    colordefs = [] #array for symbols
+    colorDefs2= [] #array for colors
+
+
+    for i in range(numColors):# loop to read all the color lines
+        colorLine = fh.readline()#reads as many lines as the number of colors
+        colorLine.strip() # splits the characters
+        sym, c, colors = colorLine.split() # catagorizing the line
+        print(sym, c , colors)
     
     
+        if sym == '~': # since ~ is space, it is changed to ' '
+            sym = " "# symbol changed
     
-    if sym == '~': # since ~ is space, it is changed to ' '
-        sym = " "# symbol changed
-    
-    colordefs.append(sym) # putting the symbols in an array
-    colorDefs2.append(colors)# putting the colors in the array in order as the symbols
+        colordefs.append(sym) # putting the symbols in an array
+        colorDefs2.append(colors)# putting the colors in the array in order as the symbols
    
      
 
 
-col= [0]*rows # array to take the file contents
+    col= [0]*rows # array to take the file contents
 
-for k in range(rows):#loop to make fh read all the lines of the file
-    col[k]= fh.readline() # reads the lines of the array and appends it to the array 'col'
+    for k in range(rows):#loop to make fh read all the lines of the file
+        col[k]= fh.readline() # reads the lines of the array and appends it to the array 'col'
     
     
-    
-#turtle.bgcolor('gray40') # background change
-turtle.tracer(0,0) # makes turtle faster
+    print(col)
 
 
-cordinates(rows, cols) # function to plot and make turtle move to the right spots
+    #turtle.bgcolor('gray40') # background change
+    turtle.tracer(0,0) # makes turtle faster
 
-t.hideturtle() # hiding turtle from the image
 
-turtle.update() # updating from turtle tracer so the image can show
+    cordinates(rows, cols) # function to plot and make turtle move to the right spots
 
-fh.close() # file closed, for no other problems
+    t.hideturtle() # hiding turtle from the image
 
-    
+    turtle.update() # updating from turtle tracer so the image can show
+
+    fh.close() # file closed, for no other problems
+
+except FileNotFoundError:
+    print('File is not found in directory, please check and rerun agian')   
 
