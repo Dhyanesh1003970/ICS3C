@@ -12,13 +12,28 @@ temp = int(temp)-1
 print(x)
 print(y)
 
-for j in range(temp):
-    r = len(ar)-2
-    q = len(ar)-1
+n=0
 
-    x2 =ar[r]
-    y2=ar[q]
 
-    t = x2 + y2
-    print(t)
-    ar.append(t)
+
+def f(n):
+    
+    if (n==temp):
+        return
+    
+    else:
+        r = len(ar)-2
+        q = len(ar)-1
+
+        x2 =ar[r]
+        y2=ar[q]
+
+        t = x2 + y2
+        print(t)
+        ar.append(t)
+        
+        n+=1
+        f(n)
+        return
+
+f(n)
