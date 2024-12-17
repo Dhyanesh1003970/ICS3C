@@ -4,14 +4,44 @@ fh=open(filename, 'r')
 
 
 
+
+def merge1(p,q,r):
+    mths=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    mths2=['01','02','03','03','05','06','07','08','09','10','11','12']
+    
+    if(wd=='w'):
+        for j in range(len(mths)):
+                if(x==mths[j]):
+                    mnth = mths2[j]
+                    print(' is the solution on', r, mnth, q)
+
+
+
+    else:
+        for i in range(len(mths)):
+            if(p==mths[i]):
+                month2 = mths2[i]
+                print('On', r,month2,q, end='' )
+                return
+
+
+
+
+
+
+
+
+
+
+
+
 def sort(X, i, j):
     y = X[i]
     X[i] = X[j]
     X[j] = y
 
 
-months=[]
-years=[]
+
 date=[]
 words=[]
 for i in range (1038):
@@ -24,7 +54,14 @@ for i in range (1038):
     date.append(d)
     
     words.append(wrd)
-    
+
+l = len(words)
+
+
+
+
+
+
 
 
 
@@ -48,55 +85,16 @@ mths2=['01','02','03','03','05','06','07','08','09','10','11','12']
 
 
 
+d=[]
+w=[]
+
 
 if (wd == 'w'):
+    m=[]
+    print('-----------------------------------------------------------------')
     word = input('What word are you looking for? ')
     word = word.upper()
-else:
-    year = input('Enter the year: ')
-    year1=int(year)
-    
-    month = input('Enter the month (3-letter abbreviation, as in Jan for January): ')
-     
-    Date = input('Enter the date: ')
-    Date1 = int(Date)
-    
-    
-    
-    
-    
 
-
-            
-                
-    
-    month= month.replace("'", " ")
-    dt = month, Date, year
-    print(year1, month2, Date1)
-    
-d=[]
-w=[]    
-    
-
-if (wd=='d'):
-    for i in range(len(mths)):
-        if(month==mths[i]):
-            month2 = mths2[i]
-    
-    
-    
-    
-    for i in range(len(date)):
-        if dt==date[i]:
-            print(words[i])
-            w.append('1')
-    
-
-
-if (wd=='w'):
-    for i in range(len(mths)):
-        if(month==mths[i]):
-            month2 = mths2[i]
         
     
     
@@ -104,14 +102,63 @@ if (wd=='w'):
     
     for i in range(len(words)):
         if(word == words[i]):
+            a = date[i]
+            m.append(a)
+
+            x = a[0]
+            mnth=2
             
-            mnth, day, yar = date[i].strip()
-            for i in range(len(mths)):
-                if(mnth==mths[i]):
-                    mnth = mths2[i]
+            for j in range(len(mths)):
+                if(x==mths[j]):
+                    mnth = mths2[j]
             
-            print(date[i])
+            
+         
+            print()
+            print('The word',word, end='')
+            merge1(mnth, a[1], a[2])
+            
             d.append('1')
+            
+            
+            
+            
+            
+            
+            
+else:
+    
+    print('-----------------------------------------------------------------')
+    year = input('Enter the year: ')
+    year1=int(year)
+    print('---------------------------------')
+    month = input('Enter the month (3-letter abbreviation, as in Jan for January): ')
+    print('---------------------------------')
+    Date = input('Enter the date: ')
+    Date1 = int(Date)
+    
+    
+    dt = month, Date, year
+   
+    
+    
+    
+
+    print()
+    merge1(month, Date, year)
+    
+    
+    
+    
+    for i in range(len(date)):
+        if dt==date[i]:
+            print(' the soltion was', words[i])
+            w.append('1')
+    
+
+
+
+    
             
 
 
@@ -125,3 +172,4 @@ if(wd=='d'):
 
 
 fh.close()
+
