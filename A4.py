@@ -1,10 +1,37 @@
-filename= 'wordle.dat'
+'''
+Name: Dhyanesh Murugesan
+Student number: 1003970
+Due date: December 20, 2024
+Course: ICS3U0-2
 
-fh=open(filename, 'r')
+
+
+VARIABLE DICTIONARY:
 
 
 
-def merge(arr, l, m, r, date):
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+filename= 'wordle.dat' # opening file
+
+fh=open(filename, 'r')#defining file read
+
+
+
+def merge(arr, l, m, r, date):#merge sort function part 2
     n1 = m - l + 1
     n2 = r - m
     
@@ -54,7 +81,7 @@ def merge(arr, l, m, r, date):
 
 
 
-def mergesort(arr, l , r, date):
+def mergesort(arr, l , r, date):#merge sort function part 1
     
     if (l<r):
         m = l + (r-l)//2
@@ -72,7 +99,7 @@ def mergesort(arr, l , r, date):
 
 
 
-def merge1(p,q,r):
+def merge1(p,q,r): # merge function for turning months to integers 
     mths=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     mths2=['01','02','03','03','05','06','07','08','09','10','11','12']
     
@@ -81,6 +108,7 @@ def merge1(p,q,r):
                 if(x==mths[j]):
                     mnth = mths2[j]
                     print(' is the solution on', r, mnth, q)
+                    return
 
 
 
@@ -103,23 +131,23 @@ def merge1(p,q,r):
 
 
 
-date=[]
-words=[]
-for i in range (1038):
-    wrd = fh.readline()
-    wrd.strip()
+date=[]#array for dates
+words=[]#array for words
+for i in range (1038):#loop for reading lines
+    wrd = fh.readline()#reading lines 
+    wrd.strip()#part 1 of spilting the word from the date
     
-    mon, dat, yer, wrd=wrd.split()
+    mon, dat, yer, wrd=wrd.split()#date and word sperated
     
-    d = mon, dat, yer
-    date.append(d)
-    
+    d = mon, dat, yer#month date and year sorted in one variable
+    date.append(d)#puts it into the apporpirate array
+    #along with the word
     words.append(wrd)
 
-l = len(words)
+l = len(words)#counting how many words are in the array
 
 
-mergesort(words, 0, l-1, date)
+mergesort(words, 0, l-1, date)#callin merge function part 1
 
 
 
@@ -127,18 +155,22 @@ mergesort(words, 0, l-1, date)
             
                 
                 
-print('Welcome to the Wordle Database')
+print('Welcome to the Wordle Database') #introduciton
 wd = input('Enter w if you are looking for a word, or d for a word a certain date: ')
+#input for what the user is looking for
 
 if wd == wd.upper():
+    #if the user inputs an uppercase letter, it will lowercase for better interpretation
     wd = wd.lower()
     
 mths=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+#these arrays class the months to their respected number 
 mths2=['01','02','03','03','05','06','07','08','09','10','11','12']
 
 
 
 d=[]
+#correction arrays
 w=[]
 
 
