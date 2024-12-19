@@ -8,7 +8,75 @@ Course: ICS3U0-2
 
 VARIABLE DICTIONARY:
 
+Driver code:
+filename -
 
+fh -
+
+date -
+
+words -
+
+wrd -
+
+D -
+
+l -
+
+wd -
+
+mths -
+
+mths2 -
+
+d -
+
+w -
+
+word -
+
+a -
+
+x -
+
+mnth -
+
+year -
+
+year1 -
+
+Date -
+
+Date1 -
+
+dt -
+
+functions:
+    mergesort:
+    
+        m -
+
+    merge:
+        n1 -
+        
+        n2 -
+        
+        L -
+        
+        R -
+        
+        L2 -
+        
+        R2 -
+        
+        i -
+        
+        j -
+        
+        k -
+        
+        arr
+       
 
 
 '''
@@ -101,6 +169,7 @@ def mergesort(arr, l , r, date):#merge sort function part 1
 
 def merge1(p,q,r): # merge function for turning months to integers 
     mths=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    #these arrays class the months to their respected number 
     mths2=['01','02','03','03','05','06','07','08','09','10','11','12']
     
     if(wd=='w'):
@@ -139,8 +208,8 @@ for i in range (1038):#loop for reading lines
     
     mon, dat, yer, wrd=wrd.split()#date and word sperated
     
-    d = mon, dat, yer#month date and year sorted in one variable
-    date.append(d)#puts it into the apporpirate array
+    D = mon, dat, yer#month date and year sorted in one variable
+    date.append(D)#puts it into the apporpirate array
     #along with the word
     words.append(wrd)
 
@@ -151,94 +220,107 @@ mergesort(words, 0, l-1, date)#callin merge function part 1
 
 
 
-
+fh.close()
             
                 
                 
 print('Welcome to the Wordle Database') #introduciton
-wd = input('Enter w if you are looking for a word, or d for a word a certain date: ')
+wd = input('Enter w if you are looking for a word, or d for a word a certain date, enter done once you are done: ')
 #input for what the user is looking for
 
-if wd == wd.upper():
-    #if the user inputs an uppercase letter, it will lowercase for better interpretation
-    wd = wd.lower()
+
+if (wd!='w' or'd'):
+    print('Please input w or d only')
+    wd = 'done'
+
+
+while (wd != 'done'):#loop
+
+    if wd == wd.upper():
+        #if the user inputs an uppercase letter, it will lowercase for better interpretation
+        wd = wd.lower()
     
-mths=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-#these arrays class the months to their respected number 
-mths2=['01','02','03','03','05','06','07','08','09','10','11','12']
+    mths=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    #these arrays class the months to their respected number 
+    mths2=['01','02','03','03','04','05','06','07','08','09','10','11','12']
 
 
 
-d=[]
-#correction arrays
-w=[]
+    d=[]
+    #correction arrays
+    w=[]
 
 
-if (wd == 'w'):
-    m=[]
-    print('------------------------------------------------------------------------')
-    word = input('What word are you looking for? ')
-    word = word.upper()
+    if (wd == 'w'): #checking if it is a word search or date search
+    
+        print('------------------------------------------------------------------------')# spacer
+    
+        word = input('What word are you looking for? ')#word input
+        word = word.upper()#upWelcome to the Wordle Database
 
-        
     
     
     
     
-    for i in range(len(words)):
-        if(word == words[i]):
-            a = date[i]
-            m.append(a)
-
-            x = a[0]
-            mnth=2
+        for i in range(len(words)):
+            #searching for the word inputted in the data file
+            if(word == words[i]):
+                #once found, it is put into an array
+                a = date[i]
             
-            for j in range(len(mths)):
-                if(x==mths[j]):
-                    mnth = mths2[j]
+
+                x = a[0]#taking the month in the array
+            
+            
+                for j in range(len(mths)):
+                    #searching for the month an another array
+                    if(x==mths[j]):
+                        #once found it is put into a variable
+                        mnth = mths2[j]
             
             
          
-            print()
-            print('The word',word, end='')
-            merge1(mnth, a[1], a[2])
+                print()
+                print('The word',word, end='')
+                merge1(mnth, a[1], a[2])#calling function that classes each month to its repected number 
             
-            d.append('1')
-            
-            
+                d.append('1')#correction array
             
             
+       
             
             
             
-else:
+            
+    else:
     
-    print('------------------------------------------------------------------------')
-    year = input('Enter the year: ')
-    year1=int(year)
-    print('--------------------')
-    month = input('Enter the month (3-letter abbreviation, as in Jan for January): ')
-    print('---------------------------------')
-    Date = input('Enter the date: ')
-    Date1 = int(Date)
+        print('------------------------------------------------------------------------')#spacer
+        year = input('Enter the year: ')#user asked to input year 
+        year1=int(year)#temp array
+        print('--------------------')#spacer
+        month = input('Enter the month (3-letter abbreviation, as in Jan for January): ')#user asked to input month
+        print('---------------------------------')#spacer
+        Date = input('Enter the date: ')#user asked to input date
+        Date1 = int(Date)#temp array
     
     
-    dt = month, Date, year
+        dt = month, Date, year # all classes into one array
    
     
     
     
 
-    print()
-    merge1(month, Date, year)
+        print()
+        merge1(month, Date, year)#calling function that classes each month to its repected number 
     
     
     
     
-    for i in range(len(date)):
-        if dt==date[i]:
-            print(' the soltion was', words[i])
-            w.append('1')
+        for i in range(len(date)):
+            #searching for date in another array 
+            if dt==date[i]:
+                print(' the soltion was', words[i])
+                w.append('1')#correction array
     
 
 
@@ -247,17 +329,24 @@ else:
             
 
 
-if(wd=='w'):
-    if(len(d)==0):
-        print()
-        print('Word is not in Database, please check agian')
+    if(wd=='w'):
+        #checking if it has the right number of list, so it knows it is right
+        if(len(d)==0):
+            print()#spacer
+            print('Word is not in Database, please check agian')
 
-if(wd=='d'):
-    if(len(w)==0):
-        print()
-        print('This date is not in Database', end='')
-        print(', please check the date and rerun program,(check the capital letter on month)')
+    if(wd=='d'):
+         #checking if it has the right number of list, so it knows it is right
+        if(len(w)==0):
+            print()
+            print('This date is not in Database', end='')
+            print(', please check the date and rerun program', end='')
+            print('check the capital letter on month,' end='')
+            print('and in data base, words start at 2021 06 19 and end at 2024 04 21)')#error message
+            #error message
+
+    print()#spacer
+    wd = input('Enter w if you are looking for a word, or d for a word a certain date, enter done once you are done: ')#loop
 
 
-fh.close()
-
+print('Goodbye')
