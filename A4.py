@@ -171,8 +171,10 @@ def merge1(p,q,r): # merge function for turning months to integers
     
     if(wd=='w'):
         for j in range(len(mths)):
+            #searching the array for a similar month
                 if(x==mths[j]):
                     mnth = mths2[j]
+                    #whent found it will give the number assigned to the that month
                     print(' is the solution on', r, mnth, q)
                     return
 
@@ -180,7 +182,9 @@ def merge1(p,q,r): # merge function for turning months to integers
 
     else:
         for i in range(len(mths)):
+            #searching the array for a similar month
             if(p==mths[i]):
+                #whent found it will give the number assigned to the that month
                 month2 = mths2[i]
                 print('On', r,month2,q, end='' )
                 return
@@ -226,9 +230,6 @@ wd = input('Enter w if you are looking for a word, or d for a word a certain dat
 #input for what the user is looking for
 
 
-if (wd!='w' or'd'):
-    print('Please input w or d only')
-    wd = 'done'
 
 
 while (wd != 'done'):#loop
@@ -239,7 +240,7 @@ while (wd != 'done'):#loop
     
     mths=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     #these arrays class the months to their respected number 
-    mths2=['01','02','03','03','04','05','06','07','08','09','10','11','12']
+    mths2=['01','02','03','04','05','06','07','08','09','10','11','12']
 
 
 
@@ -299,25 +300,63 @@ while (wd != 'done'):#loop
         print('---------------------------------')#spacer
         Date = input('Enter the date: ')#user asked to input date
         Date1 = int(Date)#temp array
-    
+        
     
         dt = month, Date, year # all classes into one array
-   
+    
+        
+        for i in range (len(mths)):
+            if (month == mths[i]):
+                month1 = mths2[i]
+        
+        
+        month1=int(month1)
+        
+        #checking if the date is too early
+        if(year1 <= 2021) :
+            if(month1 < 6): 
+                #if it is it will end the loop
+                print()
+                print('Date is too early')
+                wd='done'
+            if (month1==6):
+                #Incase the month is correct but the date is too early
+                if (Date1 < 19):
+                    print()
+                    print('Date is too early')
+                    wd='done' 
+            
+            
+        #checking if the date is too late    
+        if(year1 >= 2024) :
+            if(month1 > 4): 
+                #if it is it will end the loop
+                print()
+                print('Date is too late')
+                wd='done'
+            if (month1==4):
+                #Incase the month is correct but the date is too late
+                if (Date1 > 21):
+                    print()
+                    print('Date is too late')
+                    wd='done' 
+        
+        
+        
+        
+    
+        if wd!='done':
+            print()
+            merge1(month, Date, year)#calling function that classes each month to its repected number 
     
     
     
-
-        print()
-        merge1(month, Date, year)#calling function that classes each month to its repected number 
     
-    
-    
-    
-        for i in range(len(date)):
-            #searching for date in another array 
-            if dt==date[i]:
-                print(' the soltion was', words[i])
-                w.append('1')#correction array
+            for i in range(len(date)):
+                #searching for date in another array 
+                if dt==date[i]:
+                    print(' the soltion was', words[i])
+                    w.append('1')#correction array
     
 
 
@@ -338,8 +377,7 @@ while (wd != 'done'):#loop
             print()
             print('This date is not in Database', end='')
             print(', please check the date and rerun program', end='')
-            print('check the capital letter on month,' end='')
-            print('and in data base, words start at 2021 06 19 and end at 2024 04 21)')#error message
+            print(' check the capital letter on month,', end='')#error message
             #error message
 
     print()#spacer
