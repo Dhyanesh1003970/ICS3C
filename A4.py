@@ -9,73 +9,70 @@ Course: ICS3U0-2
 VARIABLE DICTIONARY:
 
 Driver code:
-filename -
 
-fh -
+filename - wordle file 
 
-date -
+fh - command for opening, reading and closing file 
 
-words -
+date - array to store the dates read in the file 
 
-wrd -
+words - array to store the words read in the file 
 
-D -
+wrd - line of each line read
 
-l -
+D - One variable for the date(month date and year)
 
-wd -
+l - length of the array words
 
-mths -
+wd - user input to search for word or date 
 
-mths2 -
+mths - array with all the months order with the first three letter 
 
-d -
+mths2 - array with the numbers repect full to the month
 
-w -
+d - corrections array if the user is searching for a date with a certain word
 
-word -
+w - corrections array if the user is searching for a word on a certain date
 
-a -
+word - asks for input if the user is searching for the date of the word 
 
-x -
+a - date relative to the word searched 
 
-mnth -
+x - taking the month of the date 
 
-year -
+mnth - the number of the month
 
-year1 -
+year - asking user for the year if the user is searching for a certain word on a certain date
 
-Date -
+year1 - duplicate of year 
 
-Date1 -
+month - asking user for the month
 
-dt -
+Date - asking user for the date
+
+Date1 - duplicate of Date 
+
+dt - the dates asked put into one variable (month, date, year)
 
 functions:
     mergesort:
     
-        m -
+        m - variable to split up the array for merge sort 
 
     merge:
         n1 -
         
         n2 -
         
-        L -
+        L - temp array 
         
-        R -
+        R - temp array 
         
-        L2 -
+        L2 - temp array
         
-        R2 -
+        R2 - temp array 
         
-        i -
-        
-        j -
-        
-        k -
-        
-        arr
+        arr - replacer array
        
 
 
@@ -170,7 +167,7 @@ def mergesort(arr, l , r, date):#merge sort function part 1
 def merge1(p,q,r): # merge function for turning months to integers 
     mths=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     #these arrays class the months to their respected number 
-    mths2=['01','02','03','03','05','06','07','08','09','10','11','12']
+    mths2=['01','02','03','04','05','06','07','08','09','10','11','12']
     
     if(wd=='w'):
         for j in range(len(mths)):
