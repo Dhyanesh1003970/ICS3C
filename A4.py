@@ -60,9 +60,6 @@ functions:
         m - variable to split up the array for merge sort 
 
     merge:
-        n1 -
-        
-        n2 -
         
         L - temp array 
         
@@ -100,6 +97,7 @@ def merge(arr, l, m, r, date):#merge sort function part 2
     n1 = m - l + 1
     n2 = r - m
     
+    #temp array
     L = [0] * (n1)
     R = [0] * (n2)
     L2 = [0] * (n1)
@@ -107,9 +105,11 @@ def merge(arr, l, m, r, date):#merge sort function part 2
     
     for i in range(0, n1):
         L[i] = arr[l + i]
+        #temp array
         L2[i] = date[l+i]
     for j in range(0, n2):
         R[j] = arr[m + 1 + j]
+        #temp array
         R2[j] = date[m+1+j]
     
     i = 0  
@@ -117,26 +117,26 @@ def merge(arr, l, m, r, date):#merge sort function part 2
     k = l  
     while i < n1 and j < n2:
         if L[i] <= R[j]:
-            arr[k] = L[i]
-            date[k] = L2[i]
+            arr[k] = L[i]#sorting list
+            date[k] = L2[i]#sorting list
             i += 1
         else:
-            arr[k] = R[j]
-            date[k]= R2[j]
+            arr[k] = R[j]#sorting list
+            date[k]= R2[j]#sorting list
             j += 1
         k += 1
     
  
     while i < n1:
-        arr[k] = L[i]
-        date[k] = L2[i]
+        arr[k] = L[i]#sorting list
+        date[k] = L2[i]#sorting list
         i += 1
         k += 1
     
    
     while j < n2:
-        arr[k] = R[j]
-        date[k]=R2[j]
+        arr[k] = R[j]#sorting list
+        date[k]=R2[j]#sorting list
         j += 1
         k += 1
 
@@ -146,13 +146,13 @@ def merge(arr, l, m, r, date):#merge sort function part 2
 
 
 
-def mergesort(arr, l , r, date):#merge sort function part 1
+def mergesort(arr, l , r, date): #merge sort function part 1
     
     if (l<r):
-        m = l + (r-l)//2
-        mergesort(arr , l , m, date)
-        mergesort(arr, m+1, r, date)
-        merge(arr, l , m , r, date)
+        m = l + (r-l)//2#splitting array to smaller bits
+        mergesort(arr , l , m, date)# recursion
+        mergesort(arr, m+1, r, date)#recrusion
+        merge(arr, l , m , r, date)#calling sorting function
 
 
 
