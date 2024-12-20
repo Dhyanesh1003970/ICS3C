@@ -97,7 +97,7 @@ def merge(arr, l, m, r, date):#merge sort function part 2
     n1 = m - l + 1
     n2 = r - m
     
-    #temp array
+    #temp arrays
     L = [0] * (n1)
     R = [0] * (n2)
     L2 = [0] * (n1)
@@ -105,11 +105,11 @@ def merge(arr, l, m, r, date):#merge sort function part 2
     
     for i in range(0, n1):
         L[i] = arr[l + i]
-        #temp array
+        #temp arrays
         L2[i] = date[l+i]
     for j in range(0, n2):
         R[j] = arr[m + 1 + j]
-        #temp array
+        #temp arrays
         R2[j] = date[m+1+j]
     
     i = 0  
