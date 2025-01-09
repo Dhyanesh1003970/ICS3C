@@ -128,7 +128,8 @@ for i in range (200):
 
 for i in range (len(eyr)):
     date = merge1(emo[i], eyr[i])
-    
+
+    date = str(date)
     fulldate.append(date)
 
 
