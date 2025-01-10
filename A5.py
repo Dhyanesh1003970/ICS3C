@@ -1,3 +1,66 @@
+'''
+Name: Dhyanesh Murugesan
+Student number: 1003970
+Due date: January 23, 2025
+Course: ICS3U0-2
+
+
+VARIABLE DICTIONARY:
+
+DRIVER CODE:
+
+filename - name of the database
+
+fh - function to read and close file
+
+title - header of the file
+
+gn - givenname array
+
+sn - surname array
+
+cct - card type array
+
+ccn - card number array
+
+emo - expiring month array 
+
+eyr - expiring year array
+
+fulldate - array for storing the combined date (202501)
+
+l = line reading 
+
+date = variable for merging the month and year together
+
+len = length of fulldate array for merge sort
+
+full = variable that turns the date into integer 
+
+FUNCTIONS:
+
+MERGESORT:
+    m - variable to split up the array for merge sort  
+    
+MERGE:
+
+    L to L7 - temp array
+    
+    R to R7 - temp array
+
+    arr - replacer array
+       
+       
+merge1:
+m - Integer version of months
+
+y - integer version of years
+
+ful - adds the two numbers together(after y was multiplied by 100)
+
+
+
+'''
 def merge(arr, l, m, r, gn, sn, cct, ccn, emo, eyr):#merge sort function part 2
     n1 = m - l + 1
     n2 = r - m
@@ -19,8 +82,9 @@ def merge(arr, l, m, r, gn, sn, cct, ccn, emo, eyr):#merge sort function part 2
     R7 = [0] * (n2)
     
     for i in range(0, n1):
+        #temp array
         L[i] = arr[l + i]
-        #temp arrays
+
         L2[i] = gn[l+i]
         
         L3[i] = sn[l+i]
@@ -54,12 +118,12 @@ def merge(arr, l, m, r, gn, sn, cct, ccn, emo, eyr):#merge sort function part 2
     while i < n1 and j < n2:
         if L[i] <= R[j]:
             arr[k] = L[i]#sorting list
-            gn[k] = L2[i]
-            sn[k] = L3[i]
-            cct[k] = L4[i]
-            ccn[k] = L5[i]
-            emo[k] = L6[i]
-            eyr[k] = L7[i]
+            gn[k] = L2[i]#sorting list
+            sn[k] = L3[i]#sorting list
+            cct[k] = L4[i]#sorting list
+            ccn[k] = L5[i]#sorting list
+            emo[k] = L6[i]#sorting list
+            eyr[k] = L7[i]#sorting list
             
             
             
@@ -68,11 +132,11 @@ def merge(arr, l, m, r, gn, sn, cct, ccn, emo, eyr):#merge sort function part 2
         else:
             arr[k] = R[j]#sorting list
             gn[k]= R2[j]#sorting list
-            sn[k] = R3[j]
-            cct[k] = R4[j]
-            ccn[k] = R5[j]
-            emo[k] = R6[j]
-            eyr[k] = R7[j]
+            sn[k] = R3[j]#sorting list
+            cct[k] = R4[j]#sorting list
+            ccn[k] = R5[j]#sorting list
+            emo[k] = R6[j]#sorting list
+            eyr[k] = R7[j]#sorting list
             
             j += 1
         k += 1
@@ -81,11 +145,11 @@ def merge(arr, l, m, r, gn, sn, cct, ccn, emo, eyr):#merge sort function part 2
     while i < n1:
         arr[k] = L[i]#sorting list
         gn[k] = L2[i]#sorting list
-        sn[k] = L3[i]
-        cct[k] = L4[i]
-        ccn[k] = L5[i]
-        emo[k] = L6[i]
-        eyr[k] = L7[i]
+        sn[k] = L3[i]#sorting list
+        cct[k] = L4[i]#sorting list
+        ccn[k] = L5[i]#sorting list
+        emo[k] = L6[i]#sorting list
+        eyr[k] = L7[i]#sorting list
         i += 1
         k += 1
     
@@ -93,11 +157,11 @@ def merge(arr, l, m, r, gn, sn, cct, ccn, emo, eyr):#merge sort function part 2
     while j < n2:
         arr[k] = R[j]#sorting list
         gn[k] = R2[j]#sorting list
-        sn[k] = R3[j]
-        cct[k] = R4[j]
-        ccn[k] = R5[j]
-        emo[k] = R6[j]
-        eyr[k] = R7[j]
+        sn[k] = R3[j]#sorting list
+        cct[k] = R4[j]#sorting list
+        ccn[k] = R5[j]#sorting list
+        emo[k] = R6[j]#sorting list
+        eyr[k] = R7[j]#sorting list
         j += 1
         k += 1
         
@@ -119,17 +183,17 @@ def mergesort(arr, l , r, gn, sn, cct, ccn, emo, eyr): #merge sort function part
 
 
 
-def merge1(m, y ): # merge function for turning months to integers 
+def merge1(m, y ): # merge function for putting together the year and month (202501)
    
 
        
-    m = int(m)   
-    y = int(y)
-    y = y * 100 
+    m = int(m) #data change  
+    y = int(y)#data change
+    y = y * 100 #times it by a 100 so we can add m
     
-    full = y + m
+    ful = y + m #add them together
     
-    return (full)
+    return (ful)#returning 
     
 
 
@@ -140,39 +204,37 @@ def merge1(m, y ): # merge function for turning months to integers
 
 
 
-filename = 'data.dat'
+filename = 'data.dat' # filename 
 
-fh = open(filename, 'r')
-
-
-title = fh.readline()
+fh = open(filename, 'r')# for opening, reading and closeing
 
 
-
-
-gn = []
-sn = []
-cct = []
-ccn = []
-emo = []
-eyr = []
-fulldate=[]
+title = fh.readline()#reads the tite line
 
 
 
 
-for i in range (200):
-    l = fh.readline()
+gn = [] #givenname
+sn = [] # surname
+cct = [] # card type
+ccn = [] # card number
+emo = [] #expiring month
+eyr = [] # expiring year
+fulldate=[] #full date both year and month(202501)
+
+
+
+
+for i in range (200): # reading line
+    l = fh.readline() #line reading
     
-    #for j in range (len(l)):
-     #   if l[j]==',':
-      #      l[j]=' ' 
     
   
     
-    l.strip()
-    g,s,c,cn,m,y = l.split(',')
-    gn.append(g)
+    l.strip()#spliting line
+    g,s,c,cn,m,y = l.split(',') # spliting the line by ','
+    #sending informations to the respected array
+    gn.append(g) 
     sn.append(s)
     cct.append(c)
     ccn.append(cn)
@@ -182,36 +244,41 @@ for i in range (200):
     
 
 
-for i in range (len(eyr)):
-    date = merge1(emo[i], eyr[i])
+for i in range (len(eyr)): #loop for combineing month and year
+    date = merge1(emo[i], eyr[i]) # function that will combine the month and year
 
-    date = str(date)
+    date = str(date) #data change
     
-    fulldate.append(date)
+    fulldate.append(date) # date is put into array
 
 
 
-len = len(fulldate)
+len = len(fulldate) #length of full date array for the merge sort function
 
 
 
-mergesort(fulldate, 0, len-1, gn, sn, cct, ccn, emo, eyr)
+mergesort(fulldate, 0, len-1, gn, sn, cct, ccn, emo, eyr)# mergesorting function
 
 
-fh.close
+fh.close # file close
 
 
 
-for i in range(200):
-    full = int(fulldate[i])
+for i in range(200):# checking the cards
+    full = int(fulldate[i])#data change
 
-    if(full < 202501):
-        print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i], ' expired')
+    if(full < 202501):#checking if it is expired
+        print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i] , end=' ')#if so it will print the card informatation
+        #and print EXPIRED
+        print('EXPIRED')
+        print()
+    elif(full == 202501):#checking if it is about expired
+        print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i] , end=' ')#if so it will print the card informatation
+         #and print EXPIRED
+        print('RENEW IMMEDIATELY')
+        print()
     
-    elif(full == 202501):
-        print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i], 'RENEW NOW')
-        
-    elif(full > 202501):
-        print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i], 'safe')
+    #elif(full > 202501):
+     #   print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i],end='' 'SAFE')
     
     
