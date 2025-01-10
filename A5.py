@@ -274,7 +274,7 @@ for i in range(200):# checking the cards
         print()
     elif(full == 202501):#checking if it is about expired
         print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i] , end=' ')#if so it will print the card informatation
-         #and print EXPIRED
+         #and print RENEW IMMEDIATELY
         print('RENEW IMMEDIATELY')
         print()
     
