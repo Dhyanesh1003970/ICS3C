@@ -11,7 +11,11 @@ DRIVER CODE:
 
 filename - name of the database
 
+filenameW - name of output file
+
 fh - function to read and close file
+
+fhw - function to write and close file
 
 title - header of the file
 
@@ -205,9 +209,12 @@ def merge1(m, y ): # merge function for putting together the year and month (202
 
 
 filename = 'data.dat' # filename 
+filenameW =  'ccinfo.txt'
+
+
 
 fh = open(filename, 'r')# for opening, reading and closeing
-
+fhw = open(filenameW, 'w')
 
 title = fh.readline()#reads the tite line
 
@@ -239,10 +246,11 @@ for i in range (200): # reading line
     cct.append(c)
     ccn.append(cn)
     emo.append(m)
+    
     eyr.append(y)
     
     
-
+print(ccn)
 
 for i in range (len(eyr)): #loop for combineing month and year
     date = merge1(emo[i], eyr[i]) # function that will combine the month and year
@@ -260,7 +268,7 @@ len = len(fulldate) #length of full date array for the merge sort function
 mergesort(fulldate, 0, len-1, gn, sn, cct, ccn, emo, eyr)# mergesorting function
 
 
-fh.close # file close
+fh.close() # file close
 
 
 
@@ -268,15 +276,56 @@ for i in range(200):# checking the cards
     full = int(fulldate[i])#data change
 
     if(full < 202501):#checking if it is expired
-        print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i] , end=' ')#if so it will print the card informatation
+        print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i], end=' ')#if so it will print the card informatation
+        fhw.write('EXPIRED')
+        fhw.write(' ')
+        fhw.write(gn[i])
+        fhw.write(' ')
+        fhw.write(sn[i])
+        fhw.write(' ')
+        fhw.write(cct[i])
+        fhw.write(' ')
+        fhw.write(ccn[i])
+        fhw.write(' ')
+        fhw.write(emo[i])
+        fhw.write(' ')
+        fhw.write(eyr[i])
+        fhw.write(' ')
+        
+        
+        
+        
         #and print EXPIRED
         print('EXPIRED')
-        print()
+
+     
+        
     elif(full == 202501):#checking if it is about expired
         print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i] , end=' ')#if so it will print the card informatation
-         #and print RENEW IMMEDIATELY
+        
+        fhw.write('RENEW IMMEDIATELY')
+        fhw.write(' ')
+        fhw.write(gn[i])
+        fhw.write(' ')
+        fhw.write(sn[i])
+        fhw.write(' ')
+        fhw.write(cct[i])
+        fhw.write(' ')
+        fhw.write(ccn[i])
+        fhw.write(' ')
+        fhw.write(emo[i])
+        fhw.write(' ')
+        fhw.write(eyr[i])
+        fhw.write(' ')
+        
+        
+        
+        #and print RENEW IMMEDIATELY
         print('RENEW IMMEDIATELY')
+        
         print()
+    
+fhw.close()    
     
     #elif(full > 202501):
      #   print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i],end='' 'SAFE')
