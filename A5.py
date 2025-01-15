@@ -208,8 +208,8 @@ def merge1(m, y ): # merge function for putting together the year and month (202
 
 
 
-filename = 'data.dat' # filename 
-filenameW =  'ccinfo.txt'
+filename = input('Name of extraction file(ex. data.dat): ') # filename 
+filenameW =  input('Name of output file(ex. ccinfo.txt): ')
 
 
 
