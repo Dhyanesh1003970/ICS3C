@@ -11,11 +11,7 @@ DRIVER CODE:
 
 filename - name of the database
 
-filenameW - name of output file
-
 fh - function to read and close file
-
-fhw - function to write and close file
 
 title - header of the file
 
@@ -206,10 +202,23 @@ def merge1(m, y ): # merge function for putting together the year and month (202
 
 
 
+#data.dat
+#ccinfo.txt
 
 
-filename = input('Name of extraction file(ex. data.dat): ') # filename 
-filenameW =  input('Name of output file(ex. ccinfo.txt): ')
+#greeting message
+print('Welcome to creditcard data base analysis platform')
+print()
+
+print('Extraction file name: data.dat')#extraction file
+print('Output file name: ccinfo.txt')#output file name
+
+filename = 'data.dat'
+filenameW = 'ccinfo.txt'
+
+#input file name comands:
+#filename = input('Name of extraction file(ex. data.dat): ') # filename 
+#filenameW =  input('Name of output file(ex. ccinfo.txt): ')
 
 
 
@@ -250,7 +259,7 @@ for i in range (200): # reading line
     eyr.append(y)
     
     
-print(ccn)
+
 
 for i in range (len(eyr)): #loop for combineing month and year
     date = merge1(emo[i], eyr[i]) # function that will combine the month and year
@@ -268,7 +277,7 @@ len = len(fulldate) #length of full date array for the merge sort function
 mergesort(fulldate, 0, len-1, gn, sn, cct, ccn, emo, eyr)# mergesorting function
 
 
-fh.close() # file close
+fh.close() # closing extraction file
 
 
 
@@ -276,7 +285,8 @@ for i in range(200):# checking the cards
     full = int(fulldate[i])#data change
 
     if(full < 202501):#checking if it is expired
-        print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i], end=' ')#if so it will print the card informatation
+
+        #if so it will write card details and say expired
         fhw.write('EXPIRED')
         fhw.write(' ')
         fhw.write(gn[i])
@@ -294,15 +304,13 @@ for i in range(200):# checking the cards
         
         
         
-        
-        #and print EXPIRED
-        print('EXPIRED')
+   
 
      
         
     elif(full == 202501):#checking if it is about expired
-        print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i] , end=' ')#if so it will print the card informatation
-        
+    
+         #if so it will write card details and say renew immediately
         fhw.write('RENEW IMMEDIATELY')
         fhw.write(' ')
         fhw.write(gn[i])
@@ -320,14 +328,6 @@ for i in range(200):# checking the cards
         
         
         
-        #and print RENEW IMMEDIATELY
-        print('RENEW IMMEDIATELY')
-        
-        print()
     
-fhw.close()    
-    
-    #elif(full > 202501):
-     #   print(gn[i],sn[i],cct[i],ccn[i],emo[i],eyr[i],end='' 'SAFE')
-    
+fhw.close() #closing output file
     
