@@ -266,6 +266,8 @@ for i in range (len(eyr)): #loop for combineing month and year
 
     date = str(date) #data change
     
+    
+    
     fulldate.append(date) # date is put into array
 
 
@@ -287,20 +289,23 @@ for i in range(200):# checking the cards
     if(full < 202501):#checking if it is expired
 
         #if so it will write card details and say expired
+        fhw.write('     ')
         fhw.write('EXPIRED')
-        fhw.write(' ')
+        fhw.write('      ')
         fhw.write(gn[i])
         fhw.write(' ')
         fhw.write(sn[i])
+        fhw.write(':')
         fhw.write(' ')
         fhw.write(cct[i])
         fhw.write(' ')
+        fhw.write('#')
         fhw.write(ccn[i])
         fhw.write(' ')
         fhw.write(emo[i])
         fhw.write(' ')
         fhw.write(eyr[i])
-        fhw.write(' ')
+        
         
         
         
@@ -316,15 +321,17 @@ for i in range(200):# checking the cards
         fhw.write(gn[i])
         fhw.write(' ')
         fhw.write(sn[i])
-        fhw.write(' ')
+        fhw.write(':')
+        fhw.write('     ')
         fhw.write(cct[i])
         fhw.write(' ')
+        fhw.write('#')
         fhw.write(ccn[i])
         fhw.write(' ')
         fhw.write(emo[i])
         fhw.write(' ')
         fhw.write(eyr[i])
-        fhw.write(' ')
+        
         
         
         
